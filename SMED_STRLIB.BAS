@@ -2,7 +2,7 @@
       REM ===========================================
       REM  STRLIB Library of string manipulation
       REM  rachel8973@gmail.com
-REM Version 1
+      REM Version 1
       REM ===========================================
       :
       DEF FNleftTrim(s$)
