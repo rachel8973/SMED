@@ -1,14 +1,19 @@
-      REM >SMED
-      REM MODE 32 : COLOUR 125               : REM #RISCOS#
-      REM LIBRARY "<smed$dir>.smed_strlib"   : REM #RISCOS#
-      REM LIBRARY "<smed$dir>.smed_parseCmd" : REM #RISCOS#
-      INSTALL "SMED_STRLIB.BAS"     : REM #BBCWIN#
-      INSTALL "SMED_PARSECMD.BAS"   : REM #BBCWIN#
-      REM ==============================
+           REM ==============================
       REM  SMED - A Small Line Editor
       REM  rachel8973@gmail.com
       REM ==============================
       VERSION$="0.2.1"
+      REM ==============================
+      BBCWIN%=TRUE
+      IF BBCWIN% THEN
+        INSTALL "SMED_STRLIB.BAS"          : REM #BBCWIN#
+        INSTALL "SMED_PARSECMD.BAS"        : REM #BBCWIN#
+      ELSE
+        LIBRARY "<smed$dir>.smed_strlib"   : REM #RISCOS#
+        LIBRARY "<smed$dir>.smed_parseCmd" : REM #RISCOS#
+        MODE 32 : COLOUR 125               : REM #RISCOS#
+      ENDIF
+      REM ==============================
       DIM temp$(10)
       MAXLINES% =9999
       DIM fileData$(MAXLINES%)
@@ -20,12 +25,13 @@
       REM  to be edited from the command
       REM  and read it into fileData$
       REM  =============================
-      REM = FOR Testing
-      REM SYS "OS_GetEnv" TO cmdLine$               : REM #RISCOS#
-      REM PROCsplitStr(cmdLine$, " ", n%, temp$())  : REM #RISCOS#
-      REM fileName$=temp$(n%)                       : REM #RISCOS#
-      REM = FOR Testing                             : REM #RISCOS#
-      fileName$ = ""                                : REM #BBCWIN#
+      IF BBCWIN% THEN
+        fileName$ = ""                            : REM #BBCWIN#
+      ELSE
+        SYS "OS_GetEnv" TO cmdLine$               : REM #RISCOS#
+        PROCsplitStr(cmdLine$, " ", n%, temp$())  : REM #RISCOS#
+        fileName$=temp$(n%)                       : REM #RISCOS#
+      ENDIF
       IF LEN(fileName$)<1 THEN INPUT"Enter File Name", fileName$
       f1% = OPENIN(fileName$)
       IF f1%<1 THEN
@@ -170,7 +176,7 @@
       ENDIF
       ENDPROC
       :
-      DEF PROCdeleteLine(RETURN f$(), RETURN nLines%, RETURN currLine%,startLine%, endLine%)
+      DEF PROCdeleteLine(RETURN f$(), RETURN nLines%, RETURN currLine%, startLine%, endLine%)
       IF startLine%=0 THEN startLine%=currLine%
       IF endLine%=0 THEN endLine% =startLine%
       IF startLine%>endLine% THEN ENDPROC
@@ -253,8 +259,10 @@
       ENDPROC
       :
       DEF PROCexitSmed
-      REM COLOUR 63 : END   : REM #RISCOS#
-      QUIT                  : REM #BBC#
+      IF BBCWIN% THEN
+        QUIT                  : REM #BBC#
+      ELSE
+        COLOUR 63 : END   : REM #RISCOS#
+      ENDIF
       ENDPROC
-
 
