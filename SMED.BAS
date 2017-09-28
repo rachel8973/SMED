@@ -1,4 +1,4 @@
-           REM ==============================
+      REM ==============================
       REM  SMED - A Small Line Editor
       REM  rachel8973@gmail.com
       REM ==============================
