@@ -2,8 +2,8 @@
       REM MODE 32 : COLOUR 125               : REM #RISCOS#
       REM LIBRARY "<smed$dir>.smed_strlib"   : REM #RISCOS#
       REM LIBRARY "<smed$dir>.smed_parseCmd" : REM #RISCOS#
-      INSTALL "SMED_STRLIB"     : REM #BBCWIN#
-      INSTALL "SMED_PARSECMD"   : REM #BBCWIN#
+      INSTALL "SMED_STRLIB.BAS"     : REM #BBCWIN#
+      INSTALL "SMED_PARSECMD.BAS"   : REM #BBCWIN#
       REM ==============================
       REM  SMED - A Small Line Editor
       REM  rachel8973@gmail.com
