@@ -170,8 +170,7 @@
       ENDIF
       ENDPROC
       :
-      DEF PROCdeleteLine(RETURN f$(), RETURN nLines%, RETURN currLine%,
-      startLine%, endLine%)
+      DEF PROCdeleteLine(RETURN f$(), RETURN nLines%, RETURN currLine%,startLine%, endLine%)
       IF startLine%=0 THEN startLine%=currLine%
       IF endLine%=0 THEN endLine% =startLine%
       IF startLine%>endLine% THEN ENDPROC
