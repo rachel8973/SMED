@@ -1,5 +1,5 @@
       REM >SMED
-      REM MODE 32 : COLOUR 125
+      REM MODE 32 : COLOUR 125               : REM #RISCOS#
       REM LIBRARY "<smed$dir>.smed_strlib"   : REM #RISCOS#
       REM LIBRARY "<smed$dir>.smed_parseCmd" : REM #RISCOS#
       INSTALL "SMED_STRLIB"     : REM #BBCWIN#
