@@ -25,11 +25,13 @@
       REM PROCsplitStr(cmdLine$, " ", n%, temp$())  : REM #RISCOS#
       REM fileName$=temp$(n%)                       : REM #RISCOS#
       REM = FOR Testing                             : REM #RISCOS#
-      fileName$ = "test.txt"                        : REM #BBCWIN#
-      IF LEN(fileName$)<1 THEN INPUT"Enter New File Name", fileName$
+      fileName$ = ""                                : REM #BBCWIN#
+      IF LEN(fileName$)<1 THEN INPUT"Enter File Name", fileName$
       f1% = OPENIN(fileName$)
       IF f1%<1 THEN
         PRINT "Creating new file"
+        REM When you create an empty file you need at
+        REM least one empty line
         currentLine% =1
         lineCount% =1
         fileData$(1)=""
