@@ -241,7 +241,7 @@
       PRINT "x,y,a,nC - Copy Lines x to y to a n times"
       PRINT "a,bD     - Delete Lines a to b"
       PRINT "E        - Save and Exit"
-      PRINT "nI       - Insert Line after n"
+      PRINT "nI       - Insert Line at n"
       PRINT "nL       - List Line centered around n"
       PRINT "M        - Move Line x to y to after a"
       PRINT "Q        - Quit without save"
