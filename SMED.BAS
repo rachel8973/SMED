@@ -4,7 +4,8 @@
       REM ==============================
       VERSION$="0.2.1"
       REM ==============================
-      BBCWIN%=TRUE
+      BBCWIN%=TRUE  : REM Set this flag if develping in BBC Basic For Windows
+      REM ==============================
       IF BBCWIN% THEN
         INSTALL "SMED_STRLIB.BAS"          : REM #BBCWIN#
         INSTALL "SMED_PARSECMD.BAS"        : REM #BBCWIN#
@@ -228,6 +229,7 @@
       DEF PROCsearchLine(RETURN f$(), fromLine%, toLine%)
       ENDPROC
       :
+      REM Insert a file at a location
       DEF PROCtransferLine(RETURN f$(), beforeLine%, filename$)
       ENDPROC
       :
@@ -243,16 +245,16 @@
       PRINT "------------------------------------------------------------"
       PRINT "n        - Edit Line n - finish editing using ."
       PRINT "A        - Append Line to end of file"
-      PRINT "x,y,a,nC - Copy Lines x to y to a n times"
+      PRINT "x,y,a,nC - Copy/Insert Lines x to y to a, n times"
       PRINT "a,bD     - Delete Lines a to b"
       PRINT "E        - Save and Exit"
       PRINT "nI       - Insert Line at n"
       PRINT "nL       - List Line centered around n"
       PRINT "M        - Move Line x to y to after a"
       PRINT "Q        - Quit without save"
-      PRINT "S        - Search"
-      PRINT "R        - Replace"
-      PRINT "T        - Transfer"
+      PRINT "S        - Search (Not yet implemented)"
+      PRINT "R        - Replace (Not yet implemented)"
+      PRINT "T        - Transfer (Not yet implemented)"
       PRINT "W        - Write File"
       PRINT "H        - Help"
       PRINT "------------------------------------------------------------"
@@ -260,7 +262,7 @@
       :
       DEF PROCexitSmed
       IF BBCWIN% THEN
-        QUIT                  : REM #BBC#
+        QUIT              : REM #BBC#
       ELSE
         COLOUR 63 : END   : REM #RISCOS#
       ENDIF
